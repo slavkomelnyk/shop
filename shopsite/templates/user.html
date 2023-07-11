@@ -1,0 +1,46 @@
+{% extends "navbar.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{ name }}</li>
+    <li class="list-group-item">{{ user.email }}</li>
+
+  </ul>
+</div>
+
+
+<div class="row row-cols-4 row-cols-md-5 g-4">
+{% for object in objects %}
+<!--   <p>Product Name: {{ object.product_name }}</p>
+  <p>Text: {{ object.text }}</p>
+  <p>Big Text: {{ object.big_text }}</p>
+  <p>Price: {{ object.price }}</p>
+  <img src="{{ object.photo.url }}" alt="Product Photo"> -->
+
+
+
+  <div width="500px" height="500px" class="col">
+          <div class="card" style="width: 18rem;">
+        <img  src="{{ object.photo.url }}" class="card-img-top" alt={{ object.photo.url }} >
+        <div class="card-body">
+          <h5 class="card-title">{{ object.product_name }}</h5>
+          <p class="card-text">{{ object.text }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Ціна: {{ object.price }} грн</li>
+          <!-- <li class="list-group-item">Номер: {{ product.id }}</li> -->
+        </ul>
+        <div class="card-body">
+          <a href="{{ product.id }}" class="btn btn-primary">Перейти</a>
+
+        </div>
+      </div>
+        </div>
+{% endfor %}
+
+{% endblock %}
+</div>

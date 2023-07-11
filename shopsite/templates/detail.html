@@ -1,0 +1,40 @@
+{% extends "navbar.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<!-- <img src="{{ product.photo.url }}" width="50%">
+<div style="display: inline-block">
+	<h1 style="text-align: top: 0;,">{{ product.product_name }}</h1>
+	<p>{{ product.big_text }}</p>
+	<p>Ціна: {{ product.price }}</p>
+</div>
+ -->
+
+<div class="card mb-3" style="width: 100% ;height: 1000px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img style="width: 100% ;height: 100%;" src="{{ product.photo.url }}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h1 style="text-align: center" class="card-title">{{ product.product_name }}</h1>
+        <form method="post">{% csrf_token %}
+            <label for="id_buy">Підтвердити:</label>
+            <input type="checkbox" name="buy" required="" id="id_buy" >
+            
+            
+              
+            
+          </p>
+                  <button class="btn btn-primary" type="submit">Купити</button>
+        </form>
+        <p class="card-text">Ціна: {{ product.price }}</p>
+        <p class="card-text">Продавець: {{ product.user }} {{ product.user.email }}</p>
+        <div style="width:200px;" class="shadow-lg p-3 mb-5 bg-body-tertiary rounded"><p class="card-text">{{ product.big_text }}</p></div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
